@@ -1,0 +1,10 @@
+.board-key {
+	font-weight: bold;
+	display: inline-flex;
+	border: 1px solid white;
+	text-transform: uppercase;
+	background-color: #3a3a3c;
+	justify-content: center;
+	align-items: center;
+	vertical-align: middle;
+}
