@@ -1,6 +1,7 @@
 import React from 'react';
 import { BoardKey } from './BoardKey';
 import './Board.css';
+import { Keyboard } from '../keyboard/Keyboard';
 
 class Board extends React.Component {
 	constructor(props) {
@@ -112,62 +113,71 @@ class Board extends React.Component {
 		const isDefeat = this.checkDefeat();
 
 		return (
-			<div className='board-container'>
-				<div className='board-row'>
-					<BoardKey letter={this.state.game[0][0]} status={this.validateStatus(0, 0)}/>
-					<BoardKey letter={this.state.game[0][1]} status={this.validateStatus(0, 1)}/>
-					<BoardKey letter={this.state.game[0][2]} status={this.validateStatus(0, 2)}/>
-					<BoardKey letter={this.state.game[0][3]} status={this.validateStatus(0, 3)}/>
-					<BoardKey letter={this.state.game[0][4]} status={this.validateStatus(0, 4)}/>
-				</div>
-				<div className='board-row'>
-					<BoardKey letter={this.state.game[1][0]} status={this.validateStatus(1, 0)}/>
-					<BoardKey letter={this.state.game[1][1]} status={this.validateStatus(1, 1)}/>
-					<BoardKey letter={this.state.game[1][2]} status={this.validateStatus(1, 2)}/>
-					<BoardKey letter={this.state.game[1][3]} status={this.validateStatus(1, 3)}/>
-					<BoardKey letter={this.state.game[1][4]} status={this.validateStatus(1, 4)}/>
-				</div>
-				<div className='board-row'>
-					<BoardKey letter={this.state.game[2][0]} status={this.validateStatus(2, 0)}/>
-					<BoardKey letter={this.state.game[2][1]} status={this.validateStatus(2, 1)}/>
-					<BoardKey letter={this.state.game[2][2]} status={this.validateStatus(2, 2)}/>
-					<BoardKey letter={this.state.game[2][3]} status={this.validateStatus(2, 3)}/>
-					<BoardKey letter={this.state.game[2][4]} status={this.validateStatus(2, 4)}/>
-				</div>
-				<div className='board-row'>
-					<BoardKey letter={this.state.game[3][0]} status={this.validateStatus(3, 0)}/>
-					<BoardKey letter={this.state.game[3][1]} status={this.validateStatus(3, 1)}/>
-					<BoardKey letter={this.state.game[3][2]} status={this.validateStatus(3, 2)}/>
-					<BoardKey letter={this.state.game[3][3]} status={this.validateStatus(3, 3)}/>
-					<BoardKey letter={this.state.game[3][4]} status={this.validateStatus(3, 4)}/>
-				</div>
-				<div className='board-row'>
-					<BoardKey letter={this.state.game[4][0]} status={this.validateStatus(4, 0)}/>
-					<BoardKey letter={this.state.game[4][1]} status={this.validateStatus(4, 1)}/>
-					<BoardKey letter={this.state.game[4][2]} status={this.validateStatus(4, 2)}/>
-					<BoardKey letter={this.state.game[4][3]} status={this.validateStatus(4, 3)}/>
-					<BoardKey letter={this.state.game[4][4]} status={this.validateStatus(4, 4)}/>
-				</div>
-				<div className='board-row'>
-					<BoardKey letter={this.state.game[5][0]} status={this.validateStatus(5, 0)}/>
-					<BoardKey letter={this.state.game[5][1]} status={this.validateStatus(5, 1)}/>
-					<BoardKey letter={this.state.game[5][2]} status={this.validateStatus(5, 2)}/>
-					<BoardKey letter={this.state.game[5][3]} status={this.validateStatus(5, 3)}/>
-					<BoardKey letter={this.state.game[5][4]} status={this.validateStatus(5, 4)}/>
+			<div style={{ display: 'flex', flexDirection: 'column', marginBottom: '8px' }}>
+				Wordle
+
+				<hr></hr>
+
+				<div className='board-container'>
+					<div className='board-row'>
+						<BoardKey letter={this.state.game[0][0]} status={this.validateStatus(0, 0)}/>
+						<BoardKey letter={this.state.game[0][1]} status={this.validateStatus(0, 1)}/>
+						<BoardKey letter={this.state.game[0][2]} status={this.validateStatus(0, 2)}/>
+						<BoardKey letter={this.state.game[0][3]} status={this.validateStatus(0, 3)}/>
+						<BoardKey letter={this.state.game[0][4]} status={this.validateStatus(0, 4)}/>
+					</div>
+					<div className='board-row'>
+						<BoardKey letter={this.state.game[1][0]} status={this.validateStatus(1, 0)}/>
+						<BoardKey letter={this.state.game[1][1]} status={this.validateStatus(1, 1)}/>
+						<BoardKey letter={this.state.game[1][2]} status={this.validateStatus(1, 2)}/>
+						<BoardKey letter={this.state.game[1][3]} status={this.validateStatus(1, 3)}/>
+						<BoardKey letter={this.state.game[1][4]} status={this.validateStatus(1, 4)}/>
+					</div>
+					<div className='board-row'>
+						<BoardKey letter={this.state.game[2][0]} status={this.validateStatus(2, 0)}/>
+						<BoardKey letter={this.state.game[2][1]} status={this.validateStatus(2, 1)}/>
+						<BoardKey letter={this.state.game[2][2]} status={this.validateStatus(2, 2)}/>
+						<BoardKey letter={this.state.game[2][3]} status={this.validateStatus(2, 3)}/>
+						<BoardKey letter={this.state.game[2][4]} status={this.validateStatus(2, 4)}/>
+					</div>
+					<div className='board-row'>
+						<BoardKey letter={this.state.game[3][0]} status={this.validateStatus(3, 0)}/>
+						<BoardKey letter={this.state.game[3][1]} status={this.validateStatus(3, 1)}/>
+						<BoardKey letter={this.state.game[3][2]} status={this.validateStatus(3, 2)}/>
+						<BoardKey letter={this.state.game[3][3]} status={this.validateStatus(3, 3)}/>
+						<BoardKey letter={this.state.game[3][4]} status={this.validateStatus(3, 4)}/>
+					</div>
+					<div className='board-row'>
+						<BoardKey letter={this.state.game[4][0]} status={this.validateStatus(4, 0)}/>
+						<BoardKey letter={this.state.game[4][1]} status={this.validateStatus(4, 1)}/>
+						<BoardKey letter={this.state.game[4][2]} status={this.validateStatus(4, 2)}/>
+						<BoardKey letter={this.state.game[4][3]} status={this.validateStatus(4, 3)}/>
+						<BoardKey letter={this.state.game[4][4]} status={this.validateStatus(4, 4)}/>
+					</div>
+					<div className='board-row'>
+						<BoardKey letter={this.state.game[5][0]} status={this.validateStatus(5, 0)}/>
+						<BoardKey letter={this.state.game[5][1]} status={this.validateStatus(5, 1)}/>
+						<BoardKey letter={this.state.game[5][2]} status={this.validateStatus(5, 2)}/>
+						<BoardKey letter={this.state.game[5][3]} status={this.validateStatus(5, 3)}/>
+						<BoardKey letter={this.state.game[5][4]} status={this.validateStatus(5, 4)}/>
+					</div>
 				</div>
 
-				{isVictory && 
-					(<div>
-						<h3>You win! :)</h3>
-					</div>)
-				}
+				<div>
+					{isVictory && 
+						(<div>
+							<h3>You win! :)</h3>
+						</div>)
+					}
 
-				{isDefeat && 
-					(<div>
-						<h3>You lose! :(</h3>
-					</div>)
-				}
-			</div>
+					{isDefeat && 
+						(<div>
+							<h3>You lose! :(</h3>
+						</div>)
+					}
+				</div>
+
+			</div>			
 		);
 	}
 }
