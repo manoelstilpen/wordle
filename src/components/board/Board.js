@@ -1,7 +1,6 @@
 import React from 'react';
 import { BoardKey } from './BoardKey';
 import './Board.css';
-import { Keyboard } from '../keyboard/Keyboard';
 
 class Board extends React.Component {
 	constructor(props) {

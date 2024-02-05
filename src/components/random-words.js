@@ -1,4 +1,4 @@
-export default [
+const randomWords = [
 	"About",
 	"Alert",
 	"Argue",
@@ -488,3 +488,5 @@ export default [
 	"Vital",
 	"Voice",
 ]
+
+export default randomWords;
