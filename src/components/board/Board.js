@@ -113,7 +113,7 @@ class Board extends React.Component {
 		const isDefeat = this.checkDefeat();
 
 		return (
-			<div style={{ display: 'flex', flexDirection: 'column', marginBottom: '8px' }}>
+			<div>
 				Wordle
 
 				<hr></hr>
