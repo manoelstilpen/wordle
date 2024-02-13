@@ -28,5 +28,11 @@ hr {
 	justify-content: center;
 	font-size: calc(20px + 2vmin);
 	color: white;
-  }
+}
+
+.App-keyboard {
+	max-height: 200px;
+	width: 100%;
+	vertical-align: baseline;
+}
   

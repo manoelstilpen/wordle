@@ -4,10 +4,6 @@ import Board from '../board/Board';
 import './Game.css';
 
 export class Game extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 		return (
 			<div className="App-game">
