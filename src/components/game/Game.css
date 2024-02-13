@@ -7,14 +7,6 @@ hr {
 	width: 100%;
 }
 
-.App-board {
-	display: flex;
-	margin-bottom: 15px;
-	width: 100%;
-	align-items: center;
-	justify-content: center;
-}
-
 .App-game {
 	text-align: center;
 	background-color: black;
@@ -30,9 +22,16 @@ hr {
 	color: white;
 }
 
+.App-board {
+	display: flex;
+	margin-bottom: 15px;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
 .App-keyboard {
 	max-height: 200px;
 	width: 100%;
-	vertical-align: baseline;
 }
   

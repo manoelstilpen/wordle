@@ -13,7 +13,7 @@ export class Keyboard extends React.Component {
 
 	render() {
 		return (
-			<div className='keyboard-container'>
+			<div>
 				<div className='keyboard-row'>
 					<KeyboardUnit letter='Q' />
 					<KeyboardUnit letter='W' />

@@ -1,5 +1,8 @@
-.keyboard-container {
-	/* vertical-align: bottom; */
+.keyboard-row {
+	display: flex;
+	width: 100%;
+	margin: 0 auto 4px;
+	touch-action: manipulation;
 }
 
 .keyboard-button {
@@ -16,19 +19,12 @@
 	overflow: visible;
 	flex: 1;
 	margin-right: 3px;
+	user-select: none;
 }
 
 .keyboard-button-special {
 	flex: 1.3;
 	font-size: 11px;
-}
-
-.keyboard-row {
-	display: flex;
-	width: 100%;
-	margin-right: auto;
-	margin-bottom: 8px;
-	touch-action: manipulation;
 }
 
 .spacer {

@@ -5,6 +5,7 @@
 	row-gap: 10px;
 	width: 350px;
 	height: 420px;
+	box-sizing: border-box;
 }
 
 .board-row {
@@ -12,4 +13,5 @@
 	grid-template-columns: repeat(5, 1fr);
 	grid-column-gap: 10px;
 	column-gap: 10px;
+	user-select: none;
 }
