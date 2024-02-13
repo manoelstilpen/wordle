@@ -1,61 +1,34 @@
-import './App.css';
 import React from 'react';
-import Board from './components/board/Board';
-import randomWords from './components/random-words';
+import { Game } from './components/game/Game';
+import { Home } from './components/home/Home';
+import './App.css';
 
 export class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.inputRef = React.createRef();
-
     this.state = {
-      choosedWord: false,
       word: null,
     }
   }
 
   render() {
 
-    if (this.state.choosedWord) {
+    if (this.state.word !== null) {
       return (
-        <div className="App">
-          <header className="App-header">
-            <Board word={this.state.word}/>
-          </header>
+        <div className='App'>
+          <Game word={this.state.word} />
         </div>
-      );
-    }
+      )
+    } 
+    
+    return (<Home onClick={(word) => {
+      if (word === null || word.length !== 5) {
+        return;
+      }
 
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h3>Choose your 5 letter word</h3>
-          <input type="text" ref={this.inputRef} id="word" name="word" style={{ marginBottom: '8px' }}/>
-          <div className='app-home'>
-            <button onClick={() => {
-              const random = randomWords[Math.floor(Math.random() * randomWords.length)];
-
-              this.setState({
-                choosedWord: true,
-                word: random
-              });
-            }}>
-              Random
-            </button>
-            <button 
-              onClick={() => 
-                this.setState({
-                  choosedWord: true,
-                  word: this.inputRef.current.value
-                })
-              }>
-                Play
-            </button>
-          </div>
-        </header>
-      </div>
-    )
+      this.setState({word});
+    }} />);
   }
 }
 

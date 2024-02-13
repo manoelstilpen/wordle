@@ -6,10 +6,8 @@ class Board extends React.Component {
 	constructor(props) {
 		super(props);
 
-		const startGame = Array(6).fill([]);
-
 		this.state = {
-			game: startGame.map(() => Array(5).fill(null)),
+			game: Array(6).fill([]).map(() => Array(5).fill(null)),
 			correctWord: this.props.word.toLowerCase(),
 			activeKey: [0, 0]
 		};
@@ -49,18 +47,24 @@ class Board extends React.Component {
 				});
 			}
 
+			if (pressedKey === 'enter' && activeKey[0] >= 0 && activeKey[1] >= 5) {
+				activeKey[0] = (activeKey[0] + 1);
+				activeKey[1] = 0;
+
+				this.setState(activeKey);
+			}
+
+			return;
+		}
+
+		if (activeKey[1] >= 5) {
 			return;
 		}
 
 		const gameAux = this.state.game.slice();
-		gameAux[activeKey[0]][activeKey[1]] = event.key;
+		gameAux[activeKey[0]][activeKey[1]] = pressedKey;
 
 		activeKey[1] = (activeKey[1] + 1);
-
-		if (activeKey[1] > 4) {
-			activeKey[0] = (activeKey[0] + 1);
-			activeKey[1] = 0;
-		}
 
 		this.setState({
 			game: gameAux,
@@ -70,17 +74,24 @@ class Board extends React.Component {
 
 	checkDefeat() {
 		const activeKey = this.state.activeKey;
-		return activeKey[0] > 5;
+
+		if (activeKey[0] < 5) {
+			return;
+		}
+
+		const correctWord = this.state.correctWord;
+		const insertedWord = this.state.game[activeKey[0]-1].join('');
+		return insertedWord !== correctWord;
 	}
 
 	checkVictory() {
-		const correctWord = this.state.correctWord;
 		const activeKey = this.state.activeKey;
 
 		if (activeKey[0] <= 0 || activeKey[1] !== 0) {
 			return;
 		}
 
+		const correctWord = this.state.correctWord;
 		const insertedWord = this.state.game[activeKey[0]-1].join('');
 
 		return insertedWord === correctWord;
@@ -113,10 +124,6 @@ class Board extends React.Component {
 
 		return (
 			<div>
-				Wordle
-
-				<hr></hr>
-
 				<div className='board-container'>
 					<div className='board-row'>
 						<BoardKey letter={this.state.game[0][0]} status={this.validateStatus(0, 0)}/>

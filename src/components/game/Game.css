@@ -1,0 +1,32 @@
+hr {
+	width: 50%;
+	text-align: center;
+}
+
+.header {
+	width: 100%;
+}
+
+.App-board {
+	display: flex;
+	margin-bottom: 15px;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
+.App-game {
+	text-align: center;
+	background-color: black;
+	width: 100%;
+	max-width: 500px;
+	margin: 0 auto;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(20px + 2vmin);
+	color: white;
+  }
+  

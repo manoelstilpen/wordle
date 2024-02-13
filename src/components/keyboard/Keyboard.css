@@ -1,0 +1,36 @@
+.keyboard-container {
+	vertical-align: bottom;
+}
+
+.keyboard-button {
+	background-color: #818384;
+	color: #f8f8f8;
+	font-size: 1em;
+	font-weight: bold;
+	height: 58px;
+	width: 50px;
+	border-radius: 4px;
+	cursor: pointer;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	flex: 1;
+	margin-right: 6px;
+}
+
+.keyboard-button-special {
+	flex: 1.5;
+	font-size: 16px;
+}
+
+.keyboard-row {
+	display: flex;
+	width: 100%;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-bottom: 8px;
+}
+
+.spacer {
+	flex: .5;
+}
