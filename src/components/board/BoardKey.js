@@ -8,14 +8,16 @@ export class BoardKey extends React.Component {
 			colors: {
 				'OK': '#538D4E',
 				'POS': '#B59F3B',
-				'ERR': '#3A3A3C'
+				'ERR': '#3A3A3C',
+				'DEFAULT': 'black'
 			}
 		};
 	  }
 
 	render() {
-		const status = this.props.status;
-		const color = this.state.colors[status];
+		const status = this.props.data?.status;
+
+		const color = this.state.colors[status] ?? this.state.colors['DEFAULT'];
 
 		const background = {
 			backgroundColor: color
@@ -23,7 +25,7 @@ export class BoardKey extends React.Component {
 
 		return (
 			<div className='board-key' style={background}>
-				{this.props.letter}
+				{this.props.data?.key}
 			</div>
 		);
 	}

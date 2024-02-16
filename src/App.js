@@ -27,7 +27,7 @@ export class App extends React.Component {
         return;
       }
 
-      this.setState({word});
+      this.setState({word: word.toLowerCase()});
     }} />);
   }
 }

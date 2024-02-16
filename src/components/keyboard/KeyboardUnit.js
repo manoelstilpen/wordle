@@ -4,6 +4,16 @@ import './Keyboard.css';
 export class KeyboardUnit extends React.Component {
 	constructor(props) {
 		super(props);
+
+		this.state = {
+			colors: {
+				'OK': '#538D4E',
+				'POS': '#B59F3B',
+				'ERR': '#3A3A3C',
+				'DEFAULT': '#818384',
+			}
+		};
+
 		this.ref = React.createRef();
 		this.triggerKeyPress = this.triggerKeyPress.bind(this);
 	}
@@ -37,8 +47,10 @@ export class KeyboardUnit extends React.Component {
 			className += ' keyboard-button-special';
 		}
 
+		const backgroundColor = this.state.colors[this.props.status] || this.state.colors['DEFAULT'];
+		
 		return (
-			<button className={className} onClick={this.triggerKeyPress}>
+			<button className={className} style={{backgroundColor}} onClick={this.triggerKeyPress}>
 				{this.props.letter}
 			</button>
 		);
